@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <title>Soxar</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+
+<script>
+    //document.body.innerHTML = fetch('http://www.whateverorigin.org/get?url=' +
+     //   encodeURIComponent('https://www.cs.ubbcluj.ro/files/orar/2021-1/tabelar/IM3.html'))
+     //   .then((res) => document.innerHTML = res.json().contents);
+
+    $.getJSON('http://www.whateverorigin.org/get?url=' +
+        encodeURIComponent('https://www.cs.ubbcluj.ro/files/orar/2021-1/tabelar/IM3.html') + '&callback=?',
+        function(data){
+            const el = document.createElement('html');
+            el.innerHTML = data.contents;
+
+            console.log(el.getElementsByTagName('body').innerHTML);
+
+            const container = document.getElementById('container');
+            container.innerHTML = el.getElementsByTagName('body')[0].innerHTML;
+
+            //container.
+        });
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(getParameterByName('filterBy'), {mode: 'no-cors'});
+    //const myParam = urlParams.get('myParam');
+
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+        results = regex.exec(url);
+
+        if (!results) return null;
+        if (!results[2]) return '';
+
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+</script>
+
+</html>
