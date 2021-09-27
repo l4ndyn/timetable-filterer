@@ -13,10 +13,6 @@
 </body>
 
 <script>
-    //document.body.innerHTML = fetch('http://www.whateverorigin.org/get?url=' +
-     //   encodeURIComponent('https://www.cs.ubbcluj.ro/files/orar/2021-1/tabelar/IM3.html'))
-     //   .then((res) => document.innerHTML = res.json().contents);
-
     $.getJSON('http://www.whateverorigin.org/get?url=' +
         encodeURIComponent('https://www.cs.ubbcluj.ro/files/orar/2021-1/tabelar/IM3.html') + '&callback=?',
         function(data){
@@ -33,7 +29,6 @@
     
     const urlParams = new URLSearchParams(window.location.search);
     console.log(getParameterByName('filterBy'), {mode: 'no-cors'});
-    //const myParam = urlParams.get('myParam');
 
     function getParameterByName(name, url = window.location.href) {
         name = name.replace(/[\[\]]/g, '\\$&');

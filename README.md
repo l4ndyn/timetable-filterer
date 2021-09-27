@@ -1,0 +1,1 @@
+This website copies the html from the page of one of the timetables of Babes Bolyai University and adds checkboxes to it that help filtering the listed subjects.
